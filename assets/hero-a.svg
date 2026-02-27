@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1080" viewBox="0 0 1440 1080" role="img" aria-label="Placeholder image: hero A">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f28ab2" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="1"/>
+    </linearGradient>
+  </defs>
+  <rect width="1440" height="1080" fill="url(#g)"/>
+  <circle cx="1120" cy="320" r="220" fill="#f28ab2" fill-opacity="0.20"/>
+  <circle cx="320" cy="760" r="260" fill="#f28ab2" fill-opacity="0.12"/>
+  <rect x="160" y="160" width="1120" height="760" rx="40" fill="#ffffff" fill-opacity="0.85" stroke="#000" stroke-opacity="0.10"/>
+  <text x="240" y="340" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="56" font-weight="800" fill="#242424">
+    Épilateur 5-en-1
+  </text>
+  <text x="240" y="420" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="30" font-weight="600" fill="#5a5a5a">
+    Variante A (placeholder)  Remplace par une vraie image produit
+  </text>
+  <g transform="translate(240,520)">
+    <rect x="0" y="0" width="420" height="300" rx="28" fill="#f28ab2" fill-opacity="0.18" stroke="#f28ab2" stroke-opacity="0.35"/>
+    <text x="26" y="66" font-family="Inter, system-ui" font-size="22" font-weight="800" fill="#4b1b31">Zone image</text>
+    <text x="26" y="104" font-family="Inter, system-ui" font-size="18" font-weight="600" fill="#5a5a5a">720×540 ou WebP</text>
+  </g>
+  <g transform="translate(720,520)">
+    <rect x="0" y="0" width="480" height="140" rx="22" fill="#ffffff" fill-opacity="0.95" stroke="#000" stroke-opacity="0.10"/>
+    <text x="24" y="54" font-family="Inter, system-ui" font-size="22" font-weight="800" fill="#242424">CTA: Commander WhatsApp</text>
+    <text x="24" y="92" font-family="Inter, system-ui" font-size="18" font-weight="600" fill="#5a5a5a">Ajoute une photo nette + fond clair</text>
+  </g>
+</svg>
+

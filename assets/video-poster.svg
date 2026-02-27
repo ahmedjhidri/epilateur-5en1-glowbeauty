@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1920" viewBox="0 0 1080 1920" role="img" aria-label="Poster vidéo placeholder">
+  <defs>
+    <linearGradient id="pv" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f28ab2" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="1"/>
+    </linearGradient>
+  </defs>
+  <rect width="1080" height="1920" fill="url(#pv)"/>
+  <rect x="120" y="260" width="840" height="1400" rx="44" fill="#ffffff" fill-opacity="0.86" stroke="#000" stroke-opacity="0.10"/>
+  <circle cx="540" cy="980" r="120" fill="#f28ab2" fill-opacity="0.25"/>
+  <polygon points="510,920 510,1040 630,980" fill="#242424" fill-opacity="0.8"/>
+  <text x="200" y="520" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="56" font-weight="800" fill="#242424">
+    Vidéo démo 15s
+  </text>
+  <text x="200" y="610" font-family="Inter, system-ui" font-size="28" font-weight="650" fill="#5a5a5a">
+    Remplace assets/demo-15s.mp4
+  </text>
+  <text x="200" y="700" font-family="Inter, system-ui" font-size="24" font-weight="600" fill="#5a5a5a">
+    Format conseillé: 9:16, sous-titres, cuts rapides
+  </text>
+</svg>
+
