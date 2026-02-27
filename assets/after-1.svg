@@ -1,8 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="960" height="720" viewBox="0 0 960 720" role="img" aria-label="Après 1 placeholder">
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="720" viewBox="0 0 960 720" role="img" aria-label="AprÃ¨s 1 placeholder">
   <rect width="960" height="720" fill="#ffffff"/>
   <rect x="40" y="40" width="880" height="640" rx="28" fill="#f28ab2" fill-opacity="0.06" stroke="#000" stroke-opacity="0.10"/>
-  <text x="90" y="160" font-family="Inter, system-ui" font-size="44" font-weight="900" fill="#242424">APRÈS</text>
-  <text x="90" y="220" font-family="Inter, system-ui" font-size="22" font-weight="650" fill="#5a5a5a">Remplace par une vraie photo (même angle/lumière)</text>
+  <text x="90" y="160" font-family="Inter, system-ui" font-size="44" font-weight="900" fill="#242424">APRÃˆS</text>
+  <text x="90" y="220" font-family="Inter, system-ui" font-size="22" font-weight="650" fill="#5a5a5a">Remplace par une vraie photo (mÃªme angle/lumiÃ¨re)</text>
   <circle cx="760" cy="520" r="120" fill="#f28ab2" fill-opacity="0.12"/>
 </svg>
 
