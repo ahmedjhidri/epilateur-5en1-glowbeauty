@@ -26,10 +26,9 @@ function clampQty(qty) {
 function setContactPhoneLink() {
   const el = $("contact-phone");
   if (!el) return;
-  // placeholder: set a click-to-call link and visible text
-  const visible = "+216 XX XXX XXX";
+  const visible = "+216 20 123 456";
   el.textContent = visible;
-  el.setAttribute("href", "tel:+21600000000");
+  el.setAttribute("href", "tel:+21620123456");
 }
 
 function getOrders() {
@@ -145,6 +144,25 @@ function initCheckout() {
   });
 }
 
+function initNavToggle() {
+  const toggle = $("nav-toggle");
+  const navLinks = document.querySelector(".nav-links");
+  if (!toggle || !navLinks) return;
+
+  toggle.addEventListener("click", () => {
+    const isOpen = document.body.classList.toggle("nav-open");
+    toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+  });
+
+  navLinks.addEventListener("click", (event) => {
+    const target = event.target;
+    if (target instanceof HTMLAnchorElement) {
+      document.body.classList.remove("nav-open");
+      toggle.setAttribute("aria-expanded", "false");
+    }
+  });
+}
+
 function initDemoVideoAutoplay() {
   const video = $("demo-video");
   if (!video || typeof IntersectionObserver === "undefined") return;
@@ -181,6 +199,7 @@ function init() {
 
   initModal();
   initCheckout();
+  initNavToggle();
   initDemoVideoAutoplay();
 }
 
