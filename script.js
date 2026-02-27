@@ -145,6 +145,31 @@ function initCheckout() {
   });
 }
 
+function initDemoVideoAutoplay() {
+  const video = $("demo-video");
+  if (!video || typeof IntersectionObserver === "undefined") return;
+
+  // Autoplay on scroll works mieux en muet
+  video.muted = true;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          video.play().catch(() => {});
+        } else {
+          video.pause();
+        }
+      });
+    },
+    {
+      threshold: 0.6,
+    }
+  );
+
+  observer.observe(video);
+}
+
 function initYear() {
   const el = $("year");
   if (el) el.textContent = String(new Date().getFullYear());
@@ -156,6 +181,7 @@ function init() {
 
   initModal();
   initCheckout();
+  initDemoVideoAutoplay();
 }
 
 document.addEventListener("DOMContentLoaded", init);
