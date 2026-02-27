@@ -1,5 +1,5 @@
 GlowBeauty — Mini-boutique single-product (Tunisie)
-Produit: Épilateur électrique portable 5 en 1
+Produit: Épilateur électrique portable 4 en 1
 
 Livrable (prêt à déployer):
 - index.html
@@ -24,7 +24,7 @@ Option conseillée (évite certains soucis CORS vidéo / cache):
 B) Prix
 Fichier: script.js
 Change:
-  priceTND: 89
+  priceTND: 55
 Le checkout se mettra à jour.
 
 C) Images / vidéo (placeholders)
@@ -91,22 +91,21 @@ Netlify:
 7) Textes pub prêts à copier
 ============================================================
 3 titres courts (Instagram/FB):
-1) "Épilateur 5-en-1 • Peau douce en 5 min"
-2) "Un seul appareil pour tout: épiler, raser, exfolier"
+1) "Épilateur 4-en-1 • Sourcils, nez, contours, rasage"
+2) "Un seul appareil pour tout: sourcils, nez, barbe, rasoir"
 3) "Livraison 1–3 jours • Paiement à la livraison"
 
 Texte annonce Facebook/Instagram (avec CTA):
-Titre: Épilateur électrique 5 en 1 – Livraison Tunisie
+Titre: Épilateur électrique 4 en 1 – Livraison Tunisie
 
 Texte:
-Un appareil, 5 fonctions — peau douce en 5 minutes.
-✅ Épilation sans douleur
-✅ Tondeuse bikini
-✅ Rasage précis
-✅ Brosse exfoliante
-✅ Massage & nettoyage
+Un appareil, 4 fonctions — sourcils, nez, contours et rasage.
+✅ FIX THE EYEBROWS (ne tire pas les poils)
+✅ NASAL FEATHER (nez sans douleur)
+✅ SHEARS (tondeuse R-type, sûre)
+✅ SHAVE IMPLEMENT (tête rasoir flottante)
 
-💗 Prix: 89 TND
+💗 Prix: 55 TND
 🚚 Livraison: 1–3 jours
 💳 Paiement à la livraison
 🔁 Satisfait ou remboursé 7 jours • USB rechargeable
@@ -118,15 +117,15 @@ Un appareil, 5 fonctions — peau douce en 5 minutes.
 ============================================================
 Format conseillé: 9:16, cuts rapides, sous-titres.
 
-Script 1 — “5 fonctions”
-0-2s: Gros plan appareil + texte écran: "5-en-1"
-2-6s: Cuts: tête épilation / rasage / tondeuse bikini
-6-10s: Cuts: brosse exfoliante / massage
+Script 1 — “4 fonctions”
+0-2s: Gros plan appareil + texte écran: "4-en-1"
+2-6s: Cuts: FIX THE EYEBROWS / NASAL FEATHER
+6-10s: Cuts: SHEARS / SHAVE IMPLEMENT
 10-13s: Avant/Après (photo 1)
-13-15s: Texte: "Promo 140→89 DT • Livraison 1-3j • COD" + CTA: "Commander"
+13-15s: Texte: "Promo 90→55 DT • Livraison 1-3j • COD" + CTA: "Commander"
 
 Voix-off:
-"Un seul appareil, cinq fonctions. Pour une peau douce en quelques minutes. Promo 89 dinars, livraison rapide, paiement à la livraison. Clique pour commander."
+"Un seul appareil, quatre fonctions pour les sourcils, le nez, les contours et le rasage. Promo 55 dinars, livraison rapide, paiement à la livraison. Clique pour commander."
 
 Script 2 — “Routine express”
 0-3s: Texte: "Routine express 5 min"

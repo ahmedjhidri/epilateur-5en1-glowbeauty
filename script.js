@@ -1,8 +1,8 @@
 /* Config */
 const CONFIG = {
   brand: "GlowBeauty",
-  productName: "Épilateur électrique portable 5 en 1",
-  priceTND: 89,
+  productName: "Épilateur électrique portable 4 en 1",
+  priceTND: 55,
   currency: "TND",
   defaultQty: 1,
   ordersStorageKey: "glowbeauty_orders_v1",
