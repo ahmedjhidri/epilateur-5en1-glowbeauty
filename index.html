@@ -73,7 +73,7 @@
     </header>
 
     <main id="main">
-      <!-- HERO (A/B variants) -->
+      <!-- HERO -->
       <section class="hero" aria-labelledby="hero-title">
         <div class="container hero-grid">
           <div class="hero-copy">
@@ -93,8 +93,11 @@
 
             <div class="trust">
               <div class="trust-item">
-                <span class="trust-strong">89 TND</span>
-                <span class="trust-muted">Prix lancement</span>
+                <span class="trust-strong">
+                  <span class="price-old" aria-label="Ancien prix 140 dinars tunisiens">140 DT</span>
+                  <span class="price-now" aria-label="Prix promo 89 dinars tunisiens">89 DT</span>
+                </span>
+                <span class="trust-muted">Promo limitée</span>
               </div>
               <div class="trust-item">
                 <span class="trust-strong">1–3 jours</span>
@@ -107,18 +110,10 @@
             </div>
 
             <div class="cta-row">
-              <a
-                class="btn btn-primary"
-                id="cta-whatsapp"
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Commander sur WhatsApp
-              </a>
-              <button class="btn btn-ghost" id="cta-checkout" type="button">
-                Commander (paiement à la livraison)
+              <button class="btn btn-primary" id="cta-checkout" type="button">
+                Commander maintenant (paiement à la livraison)
               </button>
+              <a class="btn btn-ghost" href="#pricing">Voir le prix promo</a>
             </div>
 
             <p class="note" id="hero-note">Satisfait ou remboursé 7 jours • USB rechargeable</p>
@@ -136,9 +131,7 @@
                 width="720"
                 height="540"
               />
-              <figcaption class="media-caption" id="hero-caption">
-                Variante A — “Peau douce en 5 minutes”
-              </figcaption>
+              <figcaption class="media-caption" id="hero-caption">Photo produit (placeholder)</figcaption>
             </figure>
 
             <div class="badge-row" aria-label="Arguments clés">
@@ -309,9 +302,12 @@
               <p class="muted">Offre test marché (stock limité).</p>
 
               <div class="price">
-                <span class="price-amount" aria-label="Prix 89 dinars tunisiens">89</span>
-                <span class="price-currency">TND</span>
+                <span class="price-old price-old-lg" aria-label="Ancien prix 140 dinars tunisiens">140 DT</span>
+                <span class="price-amount" aria-label="Prix promo 89 dinars tunisiens">89</span>
+                <span class="price-currency">DT</span>
+                <span class="promo-badge" aria-label="Promotion limitée">PROMO</span>
               </div>
+              <p class="muted small">Ancien prix 140 DT → Prix promo 89 DT (économise 51 DT)</p>
 
               <ul class="checklist" aria-label="Inclus">
                 <li>Épilateur électrique portable 5-en-1</li>
@@ -321,18 +317,10 @@
               </ul>
 
               <div class="cta-stack">
-                <a
-                  class="btn btn-primary btn-wide"
-                  id="cta-whatsapp-2"
-                  href="#"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Commander sur WhatsApp (réponse rapide)
-                </a>
-                <button class="btn btn-ghost btn-wide" id="cta-checkout-2" type="button">
-                  Commander (paiement à la livraison)
+                <button class="btn btn-primary btn-wide" id="cta-checkout-2" type="button">
+                  Commander maintenant (paiement à la livraison)
                 </button>
+                <a class="btn btn-ghost btn-wide" href="#faq">Voir la FAQ</a>
               </div>
 
               <p class="small muted">
@@ -347,7 +335,7 @@
                 <ul class="plain">
                   <li><strong>Livraison:</strong> 1–3 jours selon région</li>
                   <li><strong>Paiement:</strong> à la livraison (COD)</li>
-                  <li><strong>Support:</strong> WhatsApp / téléphone</li>
+                  <li><strong>Support:</strong> téléphone / email</li>
                 </ul>
               </article>
               <article class="card">
@@ -428,18 +416,10 @@
         </div>
 
         <div class="footer-cta">
-          <a
-            class="btn btn-primary btn-wide"
-            id="cta-whatsapp-3"
-            href="#"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Commander sur WhatsApp
-          </a>
-          <button class="btn btn-ghost btn-wide" id="cta-checkout-3" type="button">
-            Ouvrir le formulaire
+          <button class="btn btn-primary btn-wide" id="cta-checkout-3" type="button">
+            Commander maintenant
           </button>
+          <a class="btn btn-ghost btn-wide" href="#pricing">Voir le prix</a>
         </div>
       </div>
       <div class="container footer-bottom">
@@ -488,22 +468,13 @@
             ></textarea>
           </div>
 
-          <div class="field-row">
-            <div class="field">
-              <label for="qty">Quantité</label>
-              <select id="qty" name="qty">
-                <option value="1" selected>1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-              </select>
-            </div>
-            <div class="field">
-              <label for="variant">Variante Hero (A/B)</label>
-              <select id="variant" name="variant">
-                <option value="A">A</option>
-                <option value="B">B</option>
-              </select>
-            </div>
+          <div class="field">
+            <label for="qty">Quantité</label>
+            <select id="qty" name="qty">
+              <option value="1" selected>1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+            </select>
           </div>
 
           <div class="summary">
@@ -528,7 +499,7 @@
 
           <p class="small muted">
             La commande est enregistrée localement (pour test). Pour recevoir les commandes en vrai,
-            configure WhatsApp et/ou l’option email dans <code>script.js</code>.
+            configure l’option email (Formspree) dans <code>script.js</code>.
           </p>
         </form>
 

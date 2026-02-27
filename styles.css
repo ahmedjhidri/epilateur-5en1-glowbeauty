@@ -166,6 +166,20 @@ h1 {
 .trust-strong { display: block; font-weight: 900; }
 .trust-muted { display: block; color: var(--muted); font-size: 12px; }
 
+.price-old {
+  text-decoration: line-through;
+  text-decoration-thickness: 2px;
+  color: var(--muted);
+  margin-right: 10px;
+  font-weight: 900;
+}
+.price-old-lg {
+  font-size: 16px;
+  font-weight: 900;
+  opacity: 0.85;
+}
+.price-now { color: #2b0f1c; font-weight: 950; }
+
 .cta-row {
   margin-top: 16px;
   display: grid;
@@ -319,6 +333,17 @@ video { width: 100%; height: auto; display: block; background: #111; }
 .price { display: flex; align-items: baseline; gap: 8px; margin: 12px 0 0; }
 .price-amount { font-size: 48px; font-weight: 900; letter-spacing: -0.03em; }
 .price-currency { font-size: 16px; color: var(--muted); font-weight: 800; }
+.promo-badge {
+  margin-left: 6px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-weight: 950;
+  letter-spacing: 0.02em;
+  font-size: 12px;
+  color: #2b0f1c;
+  background: rgba(242, 138, 178, 0.18);
+  border: 1px solid rgba(242, 138, 178, 0.38);
+}
 .checklist {
   list-style: none;
   padding: 0;

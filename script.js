@@ -4,29 +4,10 @@ const CONFIG = {
   productName: "Épilateur électrique portable 5 en 1",
   priceTND: 89,
   currency: "TND",
-  whatsappNumberE164: "21600000000", // TODO: replace with your WhatsApp number without "+" (e.g. 21620123456)
   defaultQty: 1,
   ordersStorageKey: "glowbeauty_orders_v1",
-  abStorageKey: "glowbeauty_hero_variant_v1",
   formspreeEndpoint: "", // Optional: set like "https://formspree.io/f/xxxxxx" to receive email orders
   fallbackEmailTo: "hello@example.com", // Used for mailto fallback if Formspree not set
-};
-
-const HERO_VARIANTS = {
-  A: {
-    eyebrow: "Livraison Tunisie • Paiement à la livraison",
-    titleMain: "Un appareil, 5 fonctions",
-    titleSub: "— peau douce en 5 minutes",
-    image: "./assets/hero-a.svg",
-    caption: 'Variante A — “Peau douce en 5 minutes”',
-  },
-  B: {
-    eyebrow: "Routine express • Résultat propre • Sans stress",
-    titleMain: "Lisse, nettoie, masse…",
-    titleSub: "— ton kit beauté 5-en-1 portable",
-    image: "./assets/hero-b.svg",
-    caption: 'Variante B — “Kit beauté 5-en-1 portable”',
-  },
 };
 
 function $(id) {
@@ -42,66 +23,6 @@ function clampQty(qty) {
   const q = Number(qty);
   if (!Number.isFinite(q)) return CONFIG.defaultQty;
   return Math.min(9, Math.max(1, Math.round(q)));
-}
-
-function getQueryParam(name) {
-  const url = new URL(window.location.href);
-  return url.searchParams.get(name);
-}
-
-function setQueryParam(name, value) {
-  const url = new URL(window.location.href);
-  url.searchParams.set(name, value);
-  window.history.replaceState({}, "", url.toString());
-}
-
-function getHeroVariant() {
-  const fromQuery = (getQueryParam("v") || "").toUpperCase();
-  if (fromQuery === "A" || fromQuery === "B") return fromQuery;
-
-  const stored = (localStorage.getItem(CONFIG.abStorageKey) || "").toUpperCase();
-  if (stored === "A" || stored === "B") return stored;
-
-  const pick = Math.random() < 0.5 ? "A" : "B";
-  localStorage.setItem(CONFIG.abStorageKey, pick);
-  return pick;
-}
-
-function applyHeroVariant(variant) {
-  const v = HERO_VARIANTS[variant] ? variant : "A";
-  const data = HERO_VARIANTS[v];
-
-  $("hero-eyebrow").textContent = data.eyebrow;
-  $("hero-title-main").textContent = data.titleMain;
-  $("hero-title-sub").textContent = data.titleSub;
-  $("hero-image").setAttribute("src", data.image);
-  $("hero-caption").textContent = data.caption;
-
-  const variantSelect = $("variant");
-  if (variantSelect) variantSelect.value = v;
-
-  setQueryParam("v", v);
-}
-
-function buildWhatsAppText({ qty, priceTND }) {
-  const q = clampQty(qty);
-  const price = formatTND(priceTND);
-  return `Je veux commander l'épilateur 5-en-1 – Quantité: ${q} – Prix: ${price} TND`;
-}
-
-function buildWhatsAppLink({ qty, priceTND }) {
-  const text = buildWhatsAppText({ qty, priceTND });
-  const encoded = encodeURIComponent(text);
-  const base = `https://wa.me/${CONFIG.whatsappNumberE164}`;
-  return `${base}?text=${encoded}`;
-}
-
-function updateWhatsAppCTAs({ qty }) {
-  const href = buildWhatsAppLink({ qty, priceTND: CONFIG.priceTND });
-  ["cta-whatsapp", "cta-whatsapp-2", "cta-whatsapp-3"].forEach((id) => {
-    const el = $(id);
-    if (el) el.setAttribute("href", href);
-  });
 }
 
 function setContactPhoneLink() {
@@ -181,7 +102,7 @@ function initModal() {
 }
 
 /* Email order option */
-function buildOrderPayload({ name, phone, address, qty, variant }) {
+function buildOrderPayload({ name, phone, address, qty }) {
   return {
     brand: CONFIG.brand,
     product: CONFIG.productName,
@@ -189,7 +110,6 @@ function buildOrderPayload({ name, phone, address, qty, variant }) {
     priceTND: CONFIG.priceTND,
     currency: CONFIG.currency,
     customer: { name: String(name || "").trim(), phone: String(phone || "").trim(), address: String(address || "").trim() },
-    heroVariant: variant,
     createdAt: new Date().toISOString(),
     source: "landing",
     userAgent: navigator.userAgent,
@@ -207,7 +127,6 @@ function buildMailtoLink(order) {
     `Téléphone: ${order.customer.phone}`,
     `Adresse: ${order.customer.address}`,
     "",
-    `Hero variant: ${order.heroVariant}`,
     `Date: ${order.createdAt}`,
   ];
   const body = lines.join("\n");
@@ -237,18 +156,8 @@ function initCheckout() {
   });
 
   const qtyEl = $("qty");
-  const variantEl = $("variant");
   const summaryPrice = $("summary-price");
   if (summaryPrice) summaryPrice.textContent = formatTND(CONFIG.priceTND);
-
-  const update = () => {
-    const qty = qtyEl ? qtyEl.value : String(CONFIG.defaultQty);
-    updateWhatsAppCTAs({ qty });
-  };
-
-  if (qtyEl) qtyEl.addEventListener("change", update);
-  if (variantEl) variantEl.addEventListener("change", () => applyHeroVariant(variantEl.value));
-  update();
 
   const emailLink = $("email-order");
   if (emailLink) {
@@ -260,7 +169,6 @@ function initCheckout() {
         phone: $("phone")?.value,
         address: $("address")?.value,
         qty: $("qty")?.value,
-        variant: $("variant")?.value,
       });
       window.location.href = buildMailtoLink(order);
     });
@@ -276,9 +184,8 @@ function initCheckout() {
     const phone = $("phone")?.value;
     const address = $("address")?.value;
     const qty = $("qty")?.value;
-    const variant = ($("variant")?.value || getHeroVariant()).toUpperCase();
 
-    const order = buildOrderPayload({ name, phone, address, qty, variant });
+    const order = buildOrderPayload({ name, phone, address, qty });
 
     saveOrder(order);
     toast("Commande enregistrée. On te contacte pour confirmer.");
@@ -291,10 +198,6 @@ function initCheckout() {
     }
 
     closeModal();
-
-    // Also open WhatsApp to accelerate confirmation (best conversion)
-    const wa = buildWhatsAppLink({ qty: order.qty, priceTND: order.priceTND });
-    window.open(wa, "_blank", "noopener,noreferrer");
   });
 }
 
@@ -306,10 +209,6 @@ function initYear() {
 function init() {
   initYear();
   setContactPhoneLink();
-
-  const variant = getHeroVariant();
-  applyHeroVariant(variant);
-  updateWhatsAppCTAs({ qty: CONFIG.defaultQty });
 
   initModal();
   initCheckout();
