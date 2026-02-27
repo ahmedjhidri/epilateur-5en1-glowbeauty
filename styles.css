@@ -178,7 +178,10 @@ h1 {
   font-weight: 900;
   opacity: 0.85;
 }
-.price-now { color: #2b0f1c; font-weight: 950; }
+.price-now {
+  color: #e63946;
+  font-weight: 950;
+}
 
 .cta-row {
   margin-top: 16px;
@@ -331,7 +334,12 @@ video { width: 100%; height: auto; display: block; background: #111; }
   box-shadow: var(--shadow);
 }
 .price { display: flex; align-items: baseline; gap: 8px; margin: 12px 0 0; }
-.price-amount { font-size: 48px; font-weight: 900; letter-spacing: -0.03em; }
+.price-amount {
+  font-size: 48px;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  color: #e63946;
+}
 .price-currency { font-size: 16px; color: var(--muted); font-weight: 800; }
 .promo-badge {
   margin-left: 6px;
