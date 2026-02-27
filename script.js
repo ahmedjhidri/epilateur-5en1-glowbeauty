@@ -2,12 +2,10 @@
 const CONFIG = {
   brand: "GlowBeauty",
   productName: "Épilateur électrique portable 4 en 1",
-  priceTND: 55,
+  priceTND: 59,
   currency: "TND",
   defaultQty: 1,
   ordersStorageKey: "glowbeauty_orders_v1",
-  formspreeEndpoint: "", // Optional: set like "https://formspree.io/f/xxxxxx" to receive email orders
-  fallbackEmailTo: "hello@example.com", // Used for mailto fallback if Formspree not set
 };
 
 function $(id) {
@@ -101,7 +99,7 @@ function initModal() {
   document.addEventListener("keydown", onGlobalKeydown);
 }
 
-/* Email order option */
+/* Order payload */
 function buildOrderPayload({ name, phone, address, qty }) {
   return {
     brand: CONFIG.brand,
@@ -116,38 +114,6 @@ function buildOrderPayload({ name, phone, address, qty }) {
   };
 }
 
-function buildMailtoLink(order) {
-  const subject = `${CONFIG.brand} — Nouvelle commande (COD)`;
-  const lines = [
-    `Produit: ${order.product}`,
-    `Quantité: ${order.qty}`,
-    `Prix: ${order.priceTND} ${order.currency}`,
-    "",
-    `Nom: ${order.customer.name}`,
-    `Téléphone: ${order.customer.phone}`,
-    `Adresse: ${order.customer.address}`,
-    "",
-    `Date: ${order.createdAt}`,
-  ];
-  const body = lines.join("\n");
-  const to = CONFIG.fallbackEmailTo;
-  return `mailto:${encodeURIComponent(to)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-}
-
-async function sendToFormspree(order) {
-  if (!CONFIG.formspreeEndpoint) return { ok: false, reason: "no-endpoint" };
-  try {
-    const res = await fetch(CONFIG.formspreeEndpoint, {
-      method: "POST",
-      headers: { "Content-Type": "application/json", Accept: "application/json" },
-      body: JSON.stringify(order),
-    });
-    return { ok: res.ok, status: res.status };
-  } catch (err) {
-    return { ok: false, reason: "network", error: String(err) };
-  }
-}
-
 function initCheckout() {
   const openers = ["cta-checkout", "cta-checkout-2", "cta-checkout-3"];
   openers.forEach((id) => {
@@ -158,21 +124,6 @@ function initCheckout() {
   const qtyEl = $("qty");
   const summaryPrice = $("summary-price");
   if (summaryPrice) summaryPrice.textContent = formatTND(CONFIG.priceTND);
-
-  const emailLink = $("email-order");
-  if (emailLink) {
-    emailLink.addEventListener("click", (e) => {
-      // Create a best-effort email link from current field values (even if not submitted)
-      e.preventDefault();
-      const order = buildOrderPayload({
-        name: $("name")?.value,
-        phone: $("phone")?.value,
-        address: $("address")?.value,
-        qty: $("qty")?.value,
-      });
-      window.location.href = buildMailtoLink(order);
-    });
-  }
 
   const form = $("checkout-form");
   if (!form) return;
@@ -189,13 +140,6 @@ function initCheckout() {
 
     saveOrder(order);
     toast("Commande enregistrée. On te contacte pour confirmer.");
-
-    // Optional: send to Formspree when configured
-    const sent = await sendToFormspree(order);
-    if (CONFIG.formspreeEndpoint) {
-      if (sent.ok) toast("Commande envoyée par email (Formspree).");
-      else toast("Commande enregistrée (Formspree non configuré ou erreur).");
-    }
 
     closeModal();
   });

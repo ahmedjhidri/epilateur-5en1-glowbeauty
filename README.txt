@@ -24,7 +24,7 @@ Option conseillée (évite certains soucis CORS vidéo / cache):
 B) Prix
 Fichier: script.js
 Change:
-  priceTND: 55
+  priceTND: 59
 Le checkout se mettra à jour.
 
 C) Images / vidéo (placeholders)
@@ -51,22 +51,7 @@ Pour voir les commandes test:
 - Cherche glowbeauty_orders_v1
 
 ============================================================
-4) Option B: envoyer la commande par email
-============================================================
-Deux options:
-
-Option 1 (recommandé): Formspree (sans backend)
-- Crée un formulaire Formspree
-- Copie l’endpoint (https://formspree.io/f/xxxxxx)
-- Colle-le dans script.js:
-  formspreeEndpoint: "https://formspree.io/f/xxxxxx"
-
-Option 2: mailto (fallback)
-- Change fallbackEmailTo dans script.js:
-  fallbackEmailTo: "tonemail@example.com"
-
-============================================================
-5) Tracking (Pixel / GA4) — placeholders
+4) Tracking (Pixel / GA4) — placeholders
 ============================================================
 Dans index.html, tu as:
 - FB_PIXEL_PLACEHOLDER_START/END
@@ -75,7 +60,7 @@ Dans index.html, tu as:
 Colle tes snippets officiels à la place, et mets tes IDs (PIXEL_ID / G-XXXXXXXXXX).
 
 ============================================================
-6) Déploiement rapide
+5) Déploiement rapide
 ============================================================
 GitHub Pages:
 1) Crée un repo (ex: glowbeauty-epilateur)
@@ -88,7 +73,7 @@ Netlify:
 2) Le site est live en 30 secondes
 
 ============================================================
-7) Textes pub prêts à copier
+6) Textes pub prêts à copier
 ============================================================
 3 titres courts (Instagram/FB):
 1) "Épilateur 4-en-1 • Sourcils, nez, contours, rasage"
@@ -105,15 +90,15 @@ Un appareil, 4 fonctions — sourcils, nez, contours et rasage.
 ✅ SHEARS (tondeuse R-type, sûre)
 ✅ SHAVE IMPLEMENT (tête rasoir flottante)
 
-💗 Prix: 55 TND
-🚚 Livraison: 1–3 jours
+💗 Prix: 59 TND (livraison incluse)
+🚚 Livraison: 1–3 jours (incluse)
 💳 Paiement à la livraison
 🔁 Satisfait ou remboursé 7 jours • USB rechargeable
 
 👉 Clique sur “Commander” pour ouvrir le formulaire (paiement à la livraison).
 
 ============================================================
-8) Scripts vidéo 15s (Reel/TikTok) — 3 variantes
+7) Scripts vidéo 15s (Reel/TikTok) — 3 variantes
 ============================================================
 Format conseillé: 9:16, cuts rapides, sous-titres.
 
@@ -122,10 +107,10 @@ Script 1 — “4 fonctions”
 2-6s: Cuts: FIX THE EYEBROWS / NASAL FEATHER
 6-10s: Cuts: SHEARS / SHAVE IMPLEMENT
 10-13s: Avant/Après (photo 1)
-13-15s: Texte: "Promo 90→55 DT • Livraison 1-3j • COD" + CTA: "Commander"
+13-15s: Texte: "Promo 90→59 DT • Livraison incluse • COD" + CTA: "Commander"
 
 Voix-off:
-"Un seul appareil, quatre fonctions pour les sourcils, le nez, les contours et le rasage. Promo 55 dinars, livraison rapide, paiement à la livraison. Clique pour commander."
+"Un seul appareil, quatre fonctions pour les sourcils, le nez, les contours et le rasage. Promo 59 dinars, livraison incluse, paiement à la livraison. Clique pour commander."
 
 Script 2 — “Routine express”
 0-3s: Texte: "Routine express 5 min"
@@ -147,9 +132,9 @@ Voix-off:
 "Tu hésites à payer en ligne ? Ici, paiement à la livraison. Livraison 1 à 3 jours. Clique et commande."
 
 ============================================================
-9) Où modifier le contenu texte
+8) Où modifier le contenu texte
 ============================================================
 - SEO title + meta description: index.html (head)
 - Tagline / features / FAQ / avis: index.html
-- Config email (Formspree / mailto): script.js
+  (Plus d’option email intégrée, tu peux connecter ton propre système si besoin.)
 
